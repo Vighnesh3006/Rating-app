@@ -1,70 +1,121 @@
-# Getting Started with Create React App
+# Store Rating Web Application – FullStack Intern Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Overview
+This is a **Store Rating Web Application** built using **Express.js (Backend)**, **MySQL (Database)**, and **React.js (Frontend)**.
 
-## Available Scripts
+Users can register, log in, and submit ratings (1–5) for stores. Functionalities depend on user roles:
 
-In the project directory, you can run:
+- **Admin**: Manage stores and users, view dashboards  
+- **Normal User**: Sign up, view stores, submit and update ratings  
+- **Store Owner**: View ratings for their store, see average rating
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Admin
+- Add new stores, normal users, and admin users  
+- Dashboard showing total users, stores, and ratings  
+- View, filter, and manage all users and stores  
 
-### `npm test`
+### Normal User
+- Sign up and log in  
+- View all registered stores  
+- Submit and modify ratings  
+- Search stores by name or address  
+- Update password  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Store Owner
+- Log in  
+- View list of users who submitted ratings for their store  
+- See average rating of their store  
+- Update password  
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Tech Stack
+- **Backend**: Node.js + Express.js  
+- **Database**: MySQL  
+- **Frontend**: React.js  
+- **Authentication**: JWT  
+- **Password Security**: bcryptjs  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Project Structure
+```text
+fullstack-assignment/
+│
+├── backend/
+│   ├── server.js
+│   ├── config/db.js
+│   ├── routes/users.js
+│   └── package.json
+│
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── App.js
+│   │   ├── index.js
+│   │   └── components/
+│   └── package.json
+│
+└── README.md
+```
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Setup Instructions
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Backend
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+cd backend
+npm install
+Start backend server:
+node server.js
+Frontend
+cd frontend
+npm install
+npm start
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Default Credentials
 
-## Learn More
+## Admin
+Email: vighneshghorpade007@gmail.com
+Password: vighnesh@123
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Store Owner (Example)
 
-### Code Splitting
+Email: santoshpatil@gmail.com
+Password: Santoshpatil@123
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Database Schema
 
-### Analyzing the Bundle Size
+## Users Table
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+id | name | email | password | address | role
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Stores Table
 
-### Advanced Configuration
+id | name | address | owner_id
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+## Ratings Table
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+id | user_id | store_id | rating
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Include a backend/db.sql file for creating tables and inserting default users.
+
+Notes
+- Name must be 20–60 characters
+- Address max 400 characters
+- Password: 8–16 characters, at least one uppercase and one special character
+- Email must follow standard email format
+- Tables support sorting for key fields like Name, Email, and Address
+- JWT token required for accessing protected routes
+
+
+This project fulfills the requirements for the FullStack Intern Coding Challenge
